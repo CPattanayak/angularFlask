@@ -1,6 +1,6 @@
 <div class="text-center">
     <div class="container">
-       <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+       <ngb-carousel *ngIf="imageBundel" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
        <ng-template ngbSlide *ngFor="let bund of imageBundel">
           <div class="row pt-4">
              <div class="col-md-4" *ngFor="let img of bund">
