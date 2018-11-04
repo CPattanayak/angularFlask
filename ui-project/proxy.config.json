@@ -1,0 +1,16 @@
+{
+  "/devurl/*": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {"^/devurl" : ""},
+    "changeOrigin":true,
+    "logLevel": "debug"
+  },
+  "/produrl/*": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {"^/produrl" : ""},
+    "changeOrigin":true,
+    "logLevel": "debug"
+  }
+}

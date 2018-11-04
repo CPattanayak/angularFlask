@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomerlistComponent } from './app/customerlist/customerlist.component';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { UpdateComponent } from './app/update/update.component';
+import { ItemlistComponent } from './app/itemlist/itemlist.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UpdateComponent } from './app/update/update.component';
     RegisterComponent,
     SidenavComponent,
     CustomerlistComponent,
-    UpdateComponent
+    UpdateComponent,
+    ItemlistComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ui-project';
-  private _opened: boolean = false;
- 
-  
+  public _opened: boolean = false;
+
+
 }

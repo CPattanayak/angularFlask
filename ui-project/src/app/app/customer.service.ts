@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Customer } from './customer.model';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -12,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CustomerService {
-  private baseUrl = 'http://localhost:5000';
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getUserList(id: any) {
     return this.http.get(`${this.baseUrl}/list/${id}`);
