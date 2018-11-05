@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build: ./ui-project
+    ports:
+      - "3000:80"
+    links:
+      - backend
+  backend:
+    build: ./backend-project
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO-URL=mongodb://db:27017
+    links:
+      - db  
+  db:
+    build: ./db
+    ports:
+      - "27017:27017"
+        

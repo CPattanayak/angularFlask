@@ -54,4 +54,4 @@ def updateCustomer(mobile):
          'mobile': request_data['mobile']})
     return jsonify({'status': 'Success'})
 
-app.run(port=5000, debug=True)
+app.run(port=5000, host='0.0.0.0',debug=True)

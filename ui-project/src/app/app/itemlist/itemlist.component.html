@@ -4,19 +4,7 @@
        <ng-template ngbSlide *ngFor="let bund of imageBundel">
           <div class="row pt-4">
              <div class="col-md-4" *ngFor="let img of bund">
-                <div class="card mb-4 box-shadow">
-                   <div class="card-header bg-primary">
-                      <img class="img-fluid rounded-circle w-75 mx-auto mt-3" [src]="img" alt="Card image">
-                      <h4 class="my-0 font-weight-normal">Free</h4>
-                   </div>
-                   <div class="card-body bg-dark">
-                      <h1><b>RS 0 </b><small class="text-muted">/ plate</small></h1>
-                      <ul class="list-unstyled mt-3 mb-4">
-                         <li>Minimum 10 order</li>
-                      </ul>
-                      <button type="button" class="btn btn-lg btn-block btn-outline-info">Sign up for free</button>
-                   </div>
-                </div>
+              <app-item-detail [selectedItem]="img" (selectedPrice)="addPrice($event)"></app-item-detail>
              </div>
           </div>
        </ng-template>

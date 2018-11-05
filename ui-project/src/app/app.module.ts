@@ -12,6 +12,7 @@ import { CustomerlistComponent } from './app/customerlist/customerlist.component
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UpdateComponent } from './app/update/update.component';
 import { ItemlistComponent } from './app/itemlist/itemlist.component';
+import { ItemDetailComponent } from './app/item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ItemlistComponent } from './app/itemlist/itemlist.component';
     SidenavComponent,
     CustomerlistComponent,
     UpdateComponent,
-    ItemlistComponent
+    ItemlistComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
