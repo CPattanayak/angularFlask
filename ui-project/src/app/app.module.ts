@@ -13,6 +13,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UpdateComponent } from './app/update/update.component';
 import { ItemlistComponent } from './app/itemlist/itemlist.component';
 import { ItemDetailComponent } from './app/item-detail/item-detail.component';
+import { FileUploadModule } from 'ng2-file-upload'
+import { FileloaderComponent } from './app/fileloader/fileloader.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ItemDetailComponent } from './app/item-detail/item-detail.component';
     CustomerlistComponent,
     UpdateComponent,
     ItemlistComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    FileloaderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,9 @@ import { ItemDetailComponent } from './app/item-detail/item-detail.component';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FileUploadModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

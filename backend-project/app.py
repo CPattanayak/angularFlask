@@ -2,7 +2,9 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from pymongo import MongoClient
 import os
-
+from werkzeug.utils import secure_filename
+from flask import send_from_directory
+dir = './upload'
 app = Flask(__name__)
 CORS(app)
 mongourl = os.getenv("MONGO-URL", "mongodb://localhost:27017")
@@ -10,8 +12,17 @@ client = MongoClient(mongourl)
 db = client.customerapp
 
 custDetail = db["customer"]
-
-
+@app.route("/api/upload", methods=['POST', 'OPTIONS'])
+def loadFile():
+    if request.method == 'POST':
+        file = request.files['photo']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(dir, filename))
+    return jsonify({'status': 'Success'})
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(dir,
+                               filename)
 @app.route("/create", methods=['POST'])
 def postcustomer():
     request_data = request.get_json()
