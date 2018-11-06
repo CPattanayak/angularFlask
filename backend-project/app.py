@@ -1,9 +1,14 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request,send_from_directory,send_file
 from flask_cors import CORS
 from pymongo import MongoClient
+from io import BytesIO
+from PIL import Image
+
+import gridfs
 import os
 from werkzeug.utils import secure_filename
-from flask import send_from_directory
+
+
 dir = './upload'
 app = Flask(__name__)
 CORS(app)
@@ -11,7 +16,39 @@ mongourl = os.getenv("MONGO-URL", "mongodb://localhost:27017")
 client = MongoClient(mongourl)
 db = client.customerapp
 
+db1 = client.pacman
+test_col = db1.test
+fs = gridfs.GridFS(db1)
+
 custDetail = db["customer"]
+@app.route("/api/uploaddb", methods=['POST', 'OPTIONS'])
+def do_upload():
+    if request.method == 'POST':
+        file = request.files['photo']
+        filename = secure_filename(file.filename)
+
+        newfile_id = fs.put(file.read(), filename=filename,contentType='image/jpeg')
+    return jsonify({'status': 'Success'})
+
+
+@app.route('/image/<path:filename>')
+def get_image(filename):
+
+    if not fs.exists(filename=filename):
+        raise Exception("mongo file does not exist! {0}".format(filename))
+
+    im_stream = fs.get_last_version(filename)
+    im = Image.open(im_stream)
+    return serve_pil_image(im)
+
+
+def serve_pil_image(pil_img):
+
+    img_io = BytesIO()
+    pil_img.save(img_io, 'JPEG', quality=70)
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/jpeg')
+
 @app.route("/api/upload", methods=['POST', 'OPTIONS'])
 def loadFile():
     if request.method == 'POST':
