@@ -43,7 +43,7 @@ def get_items():
         counter = counter + 1
         if counter % 3 == 0 :
             return_items.append(inner_items)
-            inner_items.clear()
+            inner_items=[]
     if len(inner_items)  > 0:
         return_items.append(inner_items)
     return jsonify({'items': return_items})
