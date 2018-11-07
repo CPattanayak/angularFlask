@@ -16,11 +16,38 @@ mongourl = os.getenv("MONGO-URL", "mongodb://localhost:27017")
 client = MongoClient(mongourl)
 db = client.customerapp
 
-db1 = client.pacman
+db1 = client.imageapp
 test_col = db1.test
 fs = gridfs.GridFS(db1)
 
 custDetail = db["customer"]
+itemDetail = db1["itemdetail"]
+
+@app.route("/api/item", methods=['POST'])
+def create_item():
+    request_data = request.get_json()
+    itemDetail.insert_one(
+        {'itemName': request_data['itemName'], 'price': request_data['price'], 'avalibility': request_data['avalibility'],
+         'imageName': request_data['imageName']})
+    return jsonify({'status': 'Success'})
+
+@app.route("/api/items")
+def get_items():
+    return_items = []
+    inner_items = []
+    counter = 0
+    for item in itemDetail.find():
+        inner_items.append({'itemName': item['itemName'],
+                            'price': item['price'], 'avalibility': item['avalibility'],
+                            'imageName': item['imageName']})
+        counter = counter + 1
+        if counter % 3 == 0 :
+            return_items.append(inner_items)
+            inner_items.clear()
+    if len(inner_items)  > 0:
+        return_items.append(inner_items)
+    return jsonify({'items': return_items})
+
 @app.route("/api/uploaddb", methods=['POST', 'OPTIONS'])
 def do_upload():
     if request.method == 'POST':

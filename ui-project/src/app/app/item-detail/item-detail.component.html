@@ -1,7 +1,7 @@
 <div class="card mb-4 box-shadow">
   <div class="card-header bg-primary">
-     <img class="img-fluid rounded-circle w-75 mx-auto mt-3" [src]="selectedItem.imageUrl" alt="Card image">
-     <h4 class="my-0 font-weight-normal">Free</h4>
+     <img class="img-fluid rounded-circle w-75 mx-auto mt-3" [src]="imageUrl" alt="Card image">
+     <h4 class="my-0 font-weight-normal">{{selectedItem.itemName}}</h4>
   </div>
   <div class="card-body bg-dark">
      <h1><b>RS {{selectedItem.price}} </b><small class="text-muted">/ plate</small></h1>
