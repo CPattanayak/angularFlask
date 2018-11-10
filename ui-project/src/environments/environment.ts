@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: '/devurl'
+  baseUrl: '/devurl',
+  imageuploadUrl: 'http://localhost:5000/image'
 };
 
 /*

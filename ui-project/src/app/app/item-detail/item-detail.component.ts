@@ -9,12 +9,12 @@ import { environment } from '../../../environments/environment';
 export class ItemDetailComponent implements OnInit {
   @Input() selectedItem: any;
   @Output() selectedPrice = new EventEmitter<number>();
-  private baseUrl = environment.baseUrl;
+  private baseUrl = environment.imageuploadUrl;
   public imageUrl: string;
   constructor() { }
 
   ngOnInit() {
-    this.imageUrl = `http://localhost:5000/image/${this.selectedItem.imageName}`;
+    this.imageUrl = `${this.baseUrl}/${this.selectedItem.imageName}`;
   }
 
   emitPrice()
