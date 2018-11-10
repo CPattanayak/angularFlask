@@ -15,6 +15,7 @@ import { ItemlistComponent } from './app/itemlist/itemlist.component';
 import { ItemDetailComponent } from './app/item-detail/item-detail.component';
 import { FileUploadModule } from 'ng2-file-upload'
 import { FileloaderComponent } from './app/fileloader/fileloader.component';
+import { CurrencyComponent } from './pipe/currency/currency.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FileloaderComponent } from './app/fileloader/fileloader.component';
     UpdateComponent,
     ItemlistComponent,
     ItemDetailComponent,
-    FileloaderComponent
+    FileloaderComponent,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
      <h4 class="my-0 font-weight-normal">{{selectedItem.itemName}}</h4>
   </div>
   <div class="card-body bg-dark">
-     <h1><b>RS {{selectedItem.price}} </b><small class="text-muted">/ plate</small></h1>
+     <h1><b>{{selectedItem.price | currencyString:'Rs'}} </b><small class="text-muted">/ plate</small></h1>
      <ul class="list-unstyled mt-3 mb-4">
         <li>Minimum 10 order</li>
      </ul>
