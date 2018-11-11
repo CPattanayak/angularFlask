@@ -23,6 +23,16 @@ fs = gridfs.GridFS(db1)
 custDetail = db["customer"]
 itemDetail = db1["itemdetail"]
 
+@app.route("/api/item/list")
+def get_items_list():
+    return_items = []
+    for item in itemDetail.find():
+        return_items.append({'itemName': item['itemName'],
+                            'price': item['price'], 'avalibility': item['avalibility'],
+                            'imageName': item['imageName']})
+    return jsonify({'items': return_items})
+
+
 @app.route("/api/item", methods=['POST'])
 def create_item():
     request_data = request.get_json()

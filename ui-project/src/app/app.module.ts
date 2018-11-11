@@ -16,6 +16,9 @@ import { ItemDetailComponent } from './app/item-detail/item-detail.component';
 import { FileUploadModule } from 'ng2-file-upload'
 import { FileloaderComponent } from './app/fileloader/fileloader.component';
 import { CurrencyComponent } from './pipe/currency/currency.component';
+import { CreateItemComponent } from './app/create-item/create-item.component';
+import { ItemsComponent } from './app/items/items.component';
+import { UpdateItemsComponent } from './app/update-items/update-items.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,11 @@ import { CurrencyComponent } from './pipe/currency/currency.component';
     ItemlistComponent,
     ItemDetailComponent,
     FileloaderComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    CreateItemComponent,
+    ItemsComponent,
+    UpdateItemsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,9 @@ import { CurrencyComponent } from './pipe/currency/currency.component';
     NgbModule.forRoot(),
     FileUploadModule
 
+  ],
+  entryComponents: [
+    UpdateItemsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

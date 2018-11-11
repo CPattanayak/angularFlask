@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-
+import { ItemModel } from './item.model';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -12,4 +18,12 @@ export class ItemServiceService {
   getItemList() {
     return this.http.get(`${this.baseUrl}/api/items`);
   }
+  getItemListAdmin() {
+    return this.http.get(`${this.baseUrl}/api/item/list`);
+  }
+  createItem(item: ItemModel) {
+
+    // console.log(customer);
+      return this.http.post<ItemModel>(`${this.baseUrl}` + `/api/item`, item, httpOptions);
+    }
 }
