@@ -19,9 +19,9 @@ export class ItemsComponent implements OnInit {
       }
     );
   }
-  openFormModal() {
+  openFormModal(inputdata: any) {
     const modalRef = this.modalService.open(UpdateItemsComponent);
-
+    modalRef.componentInstance.data = inputdata;
     modalRef.result.then((result) => {
       console.log(result);
     }).catch((error) => {

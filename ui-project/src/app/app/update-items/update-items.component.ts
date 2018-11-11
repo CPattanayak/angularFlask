@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {ItemModel } from '../item.model';
 import {ItemServiceService} from '../item-service.service';
@@ -13,6 +13,7 @@ export class UpdateItemsComponent implements OnInit {
   itemForm: FormGroup;
   item: ItemModel = new ItemModel();
   submitted = false;
+  @Input() data: any;
   constructor(public activeModal: NgbActiveModal, private formBuilder: FormBuilder) { }
 
 
@@ -31,9 +32,9 @@ export class UpdateItemsComponent implements OnInit {
    }
   initialize() {
     this.itemForm = this.formBuilder.group({
-      itemName: ['', Validators.required],
-      price: ['', Validators.required],
-      imageName: ['', [Validators.required]]
+      itemName: [this.data.itemName, Validators.required],
+      price: [this.data.price, Validators.required],
+      imageName: [this.data.imageName, [Validators.required]]
   });
   }
    // convenience getter for easy access to form fields
