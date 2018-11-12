@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormatterDirective } from './formatter.directive';
 
 @Component({
   selector: 'app-root',

@@ -19,6 +19,7 @@ import { CurrencyComponent } from './pipe/currency/currency.component';
 import { CreateItemComponent } from './app/create-item/create-item.component';
 import { ItemsComponent } from './app/items/items.component';
 import { UpdateItemsComponent } from './app/update-items/update-items.component';
+import { FormatterDirective } from './formatter.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UpdateItemsComponent } from './app/update-items/update-items.component'
     CurrencyComponent,
     CreateItemComponent,
     ItemsComponent,
-    UpdateItemsComponent
+    UpdateItemsComponent,
+    FormatterDirective
 
   ],
   imports: [
