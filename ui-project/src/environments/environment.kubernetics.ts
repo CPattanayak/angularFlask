@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://backend:5000',
-  imageuploadUrl: 'http://backend:5000/image'
+  baseUrl: 'http://localhost:30002',
+  imageuploadUrl: 'http://localhost:30002/image'
 };
