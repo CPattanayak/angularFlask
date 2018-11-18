@@ -1,0 +1,1 @@
+docker-compose -f docker-kubernetics.yml build
