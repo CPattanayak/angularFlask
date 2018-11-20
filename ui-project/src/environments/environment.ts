@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   baseUrl: '/devurl',
-  imageuploadUrl: 'http://localhost:5000/image'
+  imageuploadUrl: 'http://localhost:5000/api/uploaddb',
+  imageSearchUrl: 'http://localhost:5000/image',
+
 };
 
 /*

@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 export class ItemDetailComponent implements OnInit {
   @Input() selectedItem: any;
   @Output() selectedPrice = new EventEmitter<number>();
-  private baseUrl = environment.imageuploadUrl;
+  private baseUrl = environment.imageSearchUrl;
   public imageUrl: string;
   constructor() { }
 
