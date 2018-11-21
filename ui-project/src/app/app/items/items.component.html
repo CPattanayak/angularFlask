@@ -17,7 +17,7 @@
             <button (click)="openFormModal(item)" type="button" class="btn btn-xs btn-default">
               <span class="fa fa-pencil"></span>
             </button>
-            <button  type="button" class="btn btn-xs btn-default">
+            <button  type="button" (click)="deleteItem(item.itemName)" class="btn btn-xs btn-default">
               <span class="fa fa-trash-o"></span>
             </button>
           </td>

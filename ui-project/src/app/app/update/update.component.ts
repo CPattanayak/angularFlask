@@ -53,7 +53,7 @@ export class UpdateComponent implements OnInit {
           return;
       }
       this.populateCustomer();
-      this.custService.createUser(this.customer).subscribe(
+      this.custService.updateUser(this.customer.mobile, this.customer).subscribe(
         data => {
          // console.log(data);
           this.submitted = false;

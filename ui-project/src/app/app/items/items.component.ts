@@ -24,9 +24,27 @@ export class ItemsComponent implements OnInit {
     modalRef.componentInstance.data = inputdata;
     modalRef.result.then((result) => {
       console.log(result);
+      this.itemService.getItemListAdmin().subscribe(
+        data => {
+           this.items = data['items'].filter( item => item);
+        }
+      );
     }).catch((error) => {
       console.log(error);
     });
+  }
+  deleteItem(inputdata: any) {
+    this.itemService.deleteItem(inputdata).subscribe(
+      ret => {
+        this.itemService.getItemListAdmin().subscribe(
+          data => {
+             this.items = data['items'].filter( item => item);
+          }
+        );
+      }
+    );
+
+
   }
 
 }

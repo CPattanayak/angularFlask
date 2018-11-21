@@ -14,7 +14,7 @@ export class UpdateItemsComponent implements OnInit {
   item: ItemModel = new ItemModel();
   submitted = false;
   @Input() data: any;
-  constructor(public activeModal: NgbActiveModal, private formBuilder: FormBuilder) { }
+  constructor(private itemService: ItemServiceService, public activeModal: NgbActiveModal, private formBuilder: FormBuilder) { }
 
 
   closeModal() {
@@ -47,6 +47,19 @@ export class UpdateItemsComponent implements OnInit {
     if (this.itemForm.invalid) {
         return;
     }
+    this.populateItem();
+    this.itemService.updateItem(this.item).subscribe(
+      data => {
+       // console.log(data);
+        this.submitted = false;
+        this.itemForm.reset();
+        this. closeModal();
+      },
+       error => {
+       /// console.log(error);
+        this.itemForm.reset(this.itemForm.value);
+       }
+    );
 
 }
 }

@@ -26,4 +26,11 @@ export class ItemServiceService {
     // console.log(customer);
       return this.http.post<ItemModel>(`${this.baseUrl}` + `/api/item`, item, httpOptions);
     }
+  updateItem(item: ItemModel) {
+    return this.http.put<ItemModel>(`${this.baseUrl}` + `/api/item/update`, item, httpOptions);
+
+  }
+  deleteItem(itename: any) {
+    return this.http.delete(`${this.baseUrl}` + `/api/item/delete/` + `${itename}`);
+  }
 }
