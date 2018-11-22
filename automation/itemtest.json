@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TestApi",
+		"_postman_id": "aeb0fdd5-3b68-763e-c4ea-0526aee0e7b6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:30002/api/item",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"Processing Item :\"+data['itemName'])"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:30002/api/item",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"itemName\":\"{{itemName}}\",\n\t\"price\" : {{price}},\n\t\"avalibility\" : true,\n\t\"imageName\" : \"{{imageName}}\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
