@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PhotoUploader",
+		"_postman_id": "2a659e60-d6e9-7622-e54f-6280ec646c19",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:30002/api/uploaddb",
+			"request": {
+				"url": "localhost:30002/api/uploaddb",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"src": "C:\\Rnd\\angularFlask\\automation\\images\\{{name}}",
+							"description": "",
+							"type": "file",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
