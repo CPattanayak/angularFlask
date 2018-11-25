@@ -1,0 +1,13 @@
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml ---minique
+minikube addons enable ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
+kubectl get pods --all-namespaces -l app=ingress-nginx
+ns kubeless
+kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.0-alpha.8/kubeless-v1.0.0-alpha.8.yaml 
+npm install serverless -g
+serverless create --template kubeless-python --path backend-project
+serverless deploy -v
+serverless invoke --function hello --log --data "Bob"
+kubeless function delete hello
+
+
