@@ -9,5 +9,6 @@ serverless create --template kubeless-python --path backend-project
 serverless deploy -v
 serverless invoke --function hello --log --data "Bob"
 kubeless function delete hello
+serverless deploy function --function myFunction
 
 
